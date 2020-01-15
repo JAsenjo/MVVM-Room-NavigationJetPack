@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration debug="true">
+
+	<property name="_LOGBACK_LOG_DIR_" value="${LOGBACK_LOG_DIR}/log" />
+
+	<!-- Create a logcat appender -->
+	<appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+		<tagEncoder>
+			<pattern>%logger{0}</pattern>
+		</tagEncoder>
+		<encoder>
+			<pattern>%msg</pattern>
+		</encoder>
+	</appender>
+
+	<!-- Create a file appender -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- lazy initialization: don't create the file until 1st write -->
+		<lazy>false</lazy>
+		<file>${_LOGBACK_LOG_DIR_}/stubpaytv.log</file>
+		<encoder>
+			<pattern>%d{dd/MM/yyyy HH:mm} [%thread] %-5level %logger{0} - %msg%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- Daily rollover period -->
+			<fileNamePattern>${_LOGBACK_LOG_DIR_}/stubpaytv.%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
+			<!-- Keep 3 days' worth of history -->
+			<maxHistory>2</maxHistory>
+			<totalSizeCap>10MB</totalSizeCap>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches xMB -->
+				<maxFileSize>1MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="sdosApp" level="OFF" additivity="false">
+		<appender-ref ref="logcat"/>
+		<appender-ref ref="file"/>
+	</logger>
+
+	<!-- Write XXX (and higher-level) messages to logcat -->
+	<root level="DEBUG">
+		<appender-ref ref="logcat"/>
+		<appender-ref ref="file"/>
+	</root>
+
+</configuration>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/task_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/dialog_create_task_descripción"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        style="@style/EditTextStyle" />
+
+    <EditText
+        android:id="@+id/task_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/dialog_create_task_duration"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        style="@style/EditTextStyle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dismiss_create_task_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_create_button_dismiss"
+            android:layout_marginEnd="20dp"
+            style="@style/ButtonStyle" />
+
+        <Button
+            android:id="@+id/create_task_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_create_button_ok"
+            style="@style/ButtonStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>
