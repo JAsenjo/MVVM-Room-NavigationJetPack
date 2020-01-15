@@ -10,7 +10,6 @@ data class FruitEntity(
     @ColumnInfo(name = "farmer_id") val farmerId: Int?,
     @ColumnInfo(name = "category") val category: String?,
     @ColumnInfo(name = "item") val item: String?,
-    @ColumnInfo(name = "phone") val phone: String?
-) {
-    @PrimaryKey(autoGenerate = true) var id: Long? = null
+    @ColumnInfo(name = "phone") val phone: String?) {
+    @PrimaryKey(autoGenerate = true) var id: Long = 0L
 }

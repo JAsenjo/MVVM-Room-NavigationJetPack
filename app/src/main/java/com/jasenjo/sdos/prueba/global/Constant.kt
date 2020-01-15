@@ -4,16 +4,16 @@ package com.jasenjo.sdos.prueba.global
 const val TABLE_NAME_USER = "user"
 const val TABLE_NAME_FRUIT = "fruit"
 const val TABLE_NAME_TASK = "task"
-const val TABLE_NAME_IS_DONE = "is_done"
 const val TABLE_NAME_LAST_UPDATE = "last_update"
-const val TABLE_HOURS_WORK = "hours_work"
 
-// DATABASE FIELDS
-const val ID = "id"
-const val USERNAME = "user_name"
-const val PASSWORD = "password"
-const val ASIGNEE = "asignee"
-const val IS_ADMIN = "is_admin"
+// DATABASE COLUMNS
+const val COLUM_NAME_ID = "id"
+const val COLUMN_NAME_USERNAME = "user_name"
+const val COLUMN_NAME_PASSWORD = "password"
+const val COLUMN_NAME_ASIGNEE = "asignee"
+const val COLUMN_NAME_IS_ADMIN = "is_admin"
+const val COLUMN_NAME_HOURS_WORK = "hours_work"
+const val COLUMN_NAME_IS_DONE = "is_done"
 
 // SHARED PREFERENCES
 const val KEY_USER_LOGGED_ID = "key_user_logged_id"

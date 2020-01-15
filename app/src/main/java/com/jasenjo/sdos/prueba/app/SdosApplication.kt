@@ -25,7 +25,7 @@ class SdosApplication: Application() {
         val LOGBACK_LOG_DIR = "LOGBACK_LOG_DIR"
         if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
             val file = applicationContext.getExternalFilesDir(null)
-            if (file != null) {
+            file?.let {
                 logPath = file.absolutePath
             }
             System.setProperty(LOGBACK_LOG_DIR, logPath)

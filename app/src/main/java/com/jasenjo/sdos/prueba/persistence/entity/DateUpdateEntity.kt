@@ -7,5 +7,5 @@ import com.jasenjo.sdos.prueba.global.TABLE_NAME_LAST_UPDATE
 
 @Entity(tableName = TABLE_NAME_LAST_UPDATE)
 data class DateUpdateEntity(@ColumnInfo(name = "date_last_update") var lastUpdate: Long?) {
-    @PrimaryKey(autoGenerate = true) var id: Long? = null
+    @PrimaryKey(autoGenerate = true) var id: Long = 0L
 }

@@ -13,7 +13,6 @@ import com.jasenjo.sdos.prueba.persistence.entity.FruitEntity
 import com.jasenjo.sdos.prueba.persistence.entity.TaskEntity
 import com.jasenjo.sdos.prueba.persistence.entity.UserEntity
 
-
 @Database(entities = [UserEntity::class, FruitEntity::class, DateUpdateEntity::class, TaskEntity::class], version = 1)
 abstract class SdosDatabase : RoomDatabase() {
 

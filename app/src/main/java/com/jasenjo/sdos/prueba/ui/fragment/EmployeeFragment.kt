@@ -28,12 +28,7 @@ class EmployeeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button_save_tasks.setOnClickListener{ saveTasks()}
         viewModel.getTaskForUserLogged()
-    }
-
-    private fun saveTasks() {
-        viewModel.saveTasks()
     }
 
 }

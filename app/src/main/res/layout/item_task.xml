@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="task"
             type="com.jasenjo.sdos.prueba.persistence.entity.TaskEntity" />

@@ -21,7 +21,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private var userLogged: UserEntity? = null
     private val context = application.applicationContext
     var tasks = MutableLiveData<Array<TaskEntity>>()
-    var viewModelState = MutableLiveData<HomeState>()
+    var homeState = MutableLiveData<HomeState>()
     val userLoggedId = SdosPreferenceManager(context).getLong(KEY_USER_LOGGED_ID)
 
     init {
@@ -31,13 +31,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun isAdminOrEmployeeLogged() {
         val loggedState = if (userLoggedId == ADMIN_ID) HomeState.ON_ADMING_LOGGED else HomeState.ON_EMPLOYEE_LOGGED
-        viewModelState.value = loggedState
+        homeState.value = loggedState
     }
 
     private fun getUserLogged() {
         viewModelScope.launch(Dispatchers.IO) {
             userLogged = SdosDatabase.getInstance(context)?.userDao()?.getUserById(userLoggedId)
         }
+    }
+
+    private fun updateHoursOfAssignedWorker(userWithLessWork: UserEntity, taskDuration: Int) {
+        val hoursOfWork = userWithLessWork.hours.plus(taskDuration)
+        SdosDatabase.getInstance(context)?.userDao()?.updateHourForUser(hoursOfWork, userWithLessWork.id)
     }
 
     fun getTaskForUserLogged() {
@@ -55,11 +60,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 updateHoursOfAssignedWorker(userWithLessWork, taskDuration)
             }
         }
-    }
-
-    private fun updateHoursOfAssignedWorker(userWithLessWork: UserEntity, taskDuration: Int) {
-        val hoursOfWork = userWithLessWork.hours.plus(taskDuration)
-        SdosDatabase.getInstance(context)?.userDao()?.updateHourForUser(hoursOfWork, userWithLessWork.id)
     }
 
     fun saveTasks() {

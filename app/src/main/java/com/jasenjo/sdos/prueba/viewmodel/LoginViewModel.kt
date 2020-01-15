@@ -28,11 +28,9 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             val userLogged = SdosDatabase.getInstance(context)?.userDao()?.findUser(username?.get(), password?.get())
             withContext(Dispatchers.Main) {
-                if (userLogged != null) {
+                userLogged?.run {
                     onLoginSuccess(userLogged)
-                } else {
-                    onLoginError()
-                }
+                }?: onLoginError()
             }
         }
     }

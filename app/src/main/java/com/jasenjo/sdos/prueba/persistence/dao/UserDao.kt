@@ -17,7 +17,7 @@ interface UserDao {
     @Update
     fun update(userEntity: UserEntity)
 
-    @Query("UPDATE $TABLE_NAME_USER SET $TABLE_HOURS_WORK=:hours WHERE ID=:userId")
+    @Query("UPDATE $TABLE_NAME_USER SET $COLUMN_NAME_HOURS_WORK=:hours WHERE ID=:userId")
     fun updateHourForUser(hours: Int, userId: Long)
 
     @Delete
@@ -26,13 +26,13 @@ interface UserDao {
     @Query("SELECT * FROM $TABLE_NAME_USER")
     fun getUsers(): LiveData<List<UserEntity>>
 
-    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $ID=:id")
+    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $COLUM_NAME_ID=:id")
     fun getUserById(id: Long): UserEntity
 
-    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $USERNAME=:username AND $PASSWORD=:password")
+    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $COLUMN_NAME_USERNAME=:username AND $COLUMN_NAME_PASSWORD=:password")
     fun findUser(username: String?, password: String?): UserEntity
 
-    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $IS_ADMIN=0 ORDER BY $TABLE_HOURS_WORK ASC LIMIT 1")
+    @Query("SELECT * FROM $TABLE_NAME_USER WHERE $COLUMN_NAME_IS_ADMIN=0 ORDER BY $COLUMN_NAME_HOURS_WORK ASC LIMIT 1")
     fun getUserWithLessWork(): UserEntity
 
 }

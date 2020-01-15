@@ -11,5 +11,5 @@ data class TaskEntity(
     @ColumnInfo(name = "duration") val hours: Int?,
     @ColumnInfo(name = "asignee") val asignee: Long?,
     @ColumnInfo(name = "is_done") var isDone: Boolean = false) {
-    @PrimaryKey(autoGenerate = true) var id: Long? = null
+    @PrimaryKey(autoGenerate = true) var id: Long = 0L
 }

@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = activity?.run { ViewModelProviders.of(this).get(MainViewModel::class.java) }?: throw Exception("Invalid Activity")
         setButtonListeners()
-        viewModel.viewModelState.observe(this, Observer { viewModelState ->
+        viewModel.homeState.observe(this, Observer { viewModelState ->
             when (viewModelState) {
                 is HomeState.ON_ADMING_LOGGED -> onAdminLogged()
                 is HomeState.ON_EMPLOYEE_LOGGED -> onEmployeeLogged()
