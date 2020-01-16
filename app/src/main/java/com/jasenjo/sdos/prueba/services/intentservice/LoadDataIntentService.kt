@@ -46,8 +46,9 @@ class LoadDataIntentService : JobIntentService() {
         val lastUpdateEntity = SdosDatabase.getInstance(applicationContext)?.lastUpdateDao()?.getLastUpdateEntity()
         lastUpdateEntity?.lastUpdate?.let { it ->
             val currentDate = Date(System.currentTimeMillis())
-            val diffInMilliseconds =  Date(it).time.minus(currentDate.time)
+            val diffInMilliseconds = currentDate.time.minus(Date(it).time)
             diffInMilliseconds.let {
+                LOG.debug("hoursWithoutUpdate: ${TimeUnit.MILLISECONDS.toHours(it)}")
                 if (TimeUnit.MILLISECONDS.toHours(it) <= HOURS_TO_UPDATE) {
                     needUpdate = false
                 }
