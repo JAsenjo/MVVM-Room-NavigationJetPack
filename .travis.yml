@@ -1,5 +1,4 @@
 language: android
-sudo: required
 jdk: oraclejdk8
 dist: trusty
 android:
@@ -35,5 +34,5 @@ cache:
   - $HOME/.gradle/wrapper/
   - $HOME/.android/build-cache
 
-  script:
+script:
 - ./gradlew clean test build
