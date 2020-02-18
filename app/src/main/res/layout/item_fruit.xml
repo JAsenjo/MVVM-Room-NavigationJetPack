@@ -6,6 +6,9 @@
         <variable
             name="fruit"
             type="com.jasenjo.sdos.prueba.persistence.entity.FruitEntity" />
+        <variable
+            name="viewmodel"
+            type="com.jasenjo.sdos.prueba.viewmodel.WebServiceViewModel" />
     </data>
 
     <LinearLayout

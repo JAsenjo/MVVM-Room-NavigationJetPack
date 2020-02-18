@@ -11,7 +11,6 @@
     <string name="dialog_create_button_ok">Crear Tarea</string>
     <string name="dialog_create_button_dismiss">Cancelar</string>
     <string name="fragment_employee_save">Guardar estado</string>
-
     <string name="fragment_home_button_view_tasks">Ver Mis Tareas</string>
     <string name="fragment_home_button_create_task">Crear Tarea</string>
     <string name="fragment_home_button_web_service">Web Service</string>

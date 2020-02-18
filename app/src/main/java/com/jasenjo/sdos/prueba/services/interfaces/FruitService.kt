@@ -8,5 +8,4 @@ interface FruitService {
 
     @GET("?category=fruit")
     fun getFruits(): Observable<List<FruitModel>>
-
 }

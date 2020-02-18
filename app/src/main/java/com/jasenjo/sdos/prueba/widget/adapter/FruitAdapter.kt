@@ -22,7 +22,6 @@ class FruitAdapter(private val fruits: Array<FruitEntity>?): RecyclerView.Adapte
         return fruits?.size?: 0
     }
 
-    inner class FruitViewHolder(val fruitBinding: ItemFruitBinding) :
-        RecyclerView.ViewHolder(fruitBinding.root)
+    inner class FruitViewHolder(val fruitBinding: ItemFruitBinding) : RecyclerView.ViewHolder(fruitBinding.root)
 
 }

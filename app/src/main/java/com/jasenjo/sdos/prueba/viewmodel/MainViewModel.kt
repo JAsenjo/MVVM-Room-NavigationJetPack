@@ -20,9 +20,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val ADMIN_ID = 1L
     private var userLogged: UserEntity? = null
     private val context = application.applicationContext
+    private val userLoggedId = SdosPreferenceManager(context).getLong(KEY_USER_LOGGED_ID)
     var tasks = MutableLiveData<Array<TaskEntity>>()
     var homeState = MutableLiveData<HomeState>()
-    val userLoggedId = SdosPreferenceManager(context).getLong(KEY_USER_LOGGED_ID)
 
     init {
         isAdminOrEmployeeLogged()
