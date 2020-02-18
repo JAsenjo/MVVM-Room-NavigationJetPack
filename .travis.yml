@@ -22,5 +22,18 @@ android:
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-    - sys-img-x86-android-26
-    - sys-img-armeabi-v7a-android-17
+    # - sys-img-x86-android-26
+    # - sys-img-armeabi-v7a-android-17
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
+
+  script:
+- ./gradlew clean test build
