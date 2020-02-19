@@ -1,11 +1,16 @@
-name: Tests
+name: Build
 
 on: [push]
+  branches:
+    - !develop
+    - !release/*
 
 jobs:
   build:
+    # Job name
+    name: Build
+    # This job runs on Linux
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 1.8
@@ -13,4 +18,4 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Gradle
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew build
