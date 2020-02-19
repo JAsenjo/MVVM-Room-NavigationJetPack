@@ -15,14 +15,13 @@ buildscript {
     }
 }
 
+plugins {
+    id 'net.saliman.cobertura' version '3.0.0'
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
-        
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
