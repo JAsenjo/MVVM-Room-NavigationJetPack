@@ -1,10 +1,11 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent { dockerfile true }
     stages {
-        stage('build') {
-            steps {
-                sh 'mvn --version'
-            }
+        stage('Test') {
+          steps {
+            echo '*** Hello... ****'
+            sh 'echo customvar= $testVar'
+          }
         }
     }
 }
