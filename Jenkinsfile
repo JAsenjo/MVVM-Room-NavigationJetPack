@@ -1,10 +1,13 @@
 pipeline {
-    agent { dockerfile true }
+      agent {
+        docker {
+          label 'mca-paytvapp-android'
+        }
+      }
     stages {
         stage('Test') {
           steps {
             echo '*** Hello... ****'
-            sh 'echo customvar= $testVar'
           }
         }
     }
