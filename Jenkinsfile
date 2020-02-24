@@ -1,7 +1,7 @@
 pipeline {
       agent {
         docker {
-          label 'mca-paytvapp-android'
+          image 'mca-paytvapp-android'
         }
       }
     stages {
