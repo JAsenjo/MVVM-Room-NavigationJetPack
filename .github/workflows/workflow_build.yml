@@ -1,7 +1,13 @@
 name: Assemble
 # This action checks the project compile.
 
-on: push
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches-ignore:
+      - 'develop'           # Push events to branches matching refs/heads/mona/octocat
+      - 'master'
+      - 'release/*'
 jobs:
   build:
     # Job name
